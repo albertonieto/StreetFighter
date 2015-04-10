@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+
+		<!-- STREET FIGHTER BY ALBERTONIETO.INFO -->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		
+		<title>Street Fighter by albertonieto.info</title>
+
+		<style type="text/css">
+
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			.stage1 {
+				position: absolute;
+				top: 0;
+				width: 45%;
+				height: 45%;
+				background: url('images/stages/stage_01.jpg') no-repeat;
+				background-size: contain;
+				float:left;
+				z-index: 0;
+			}
+
+			.ken {
+				/* ken sprite */
+				width: 70px;
+				height: 80px;
+				background-image: url('images/fighters/ken.png');
+				position: absolute;
+				top:240px;
+				margin-left:80px;
+				z-index: 1;
+			}
+
+			.idle {
+				/* animation idle broken into 4 parts takes 0.5s to perform, infinitely */
+				-webkit-animation: idle steps(4) 0.6s infinite;
+				-moz-animation: idle steps(4) 0.6s infinite;
+				-o-animation: idle steps(4) 0.6s infinite;
+				animation: idle steps(4) 0.6s infinite;
+			}
+			@-webkit-keyframes idle {
+				/* idle animates background-position from 0px to -80px */
+				from {
+					background-position:0px -80px;
+				}
+				to {
+					background-position:-280px -80px;
+				}
+			}
+			@-moz-keyframes idle {
+				/* idle animates background-position from 0px to -80px */
+				from {
+					background-position:0px -80px;
+				}
+				to {
+					background-position:-280px -80px;
+				}
+			}
+			@-o-keyframes idle {
+				/* idle animates background-position from 0px to -80px */
+				from {
+					background-position:0px -80px;
+				}
+				to {
+					background-position:-280px -80px;
+				}
+			}
+			@keyframes idle {
+				/* idle animates background-position from 0px to -80px */
+				from {
+					background-position:0px -80px;
+				}
+				to {
+					background-position:-280px -80px;
+				}
+			}
+
+			.walk {
+				/* animation walk broken into 5 parts takes 0.5s to perform, infinitely */
+				-webkit-animation: walk steps(5) 0.5s infinite;
+				-moz-animation: walk steps(5) 0.5s infinite;
+				-o-animation: walk steps(5) 0.5s infinite;
+				animation: walk steps(5) 0.5s infinite;
+			}
+			@-webkit-keyframes walk {
+				/* walk animates background-position from 0px to -350px */
+				from {
+					background-position:0px -240px;
+				}
+				to {
+					background-position:-350px -240px;
+				}
+			}
+			@-moz-keyframes walk {
+				/* walk animates background-position from 0px to -350px */
+				from {
+					background-position:0px -240px;
+				}
+				to {
+					background-position:-350px -240px;
+				}
+			}
+			@-o-keyframes walk {
+				/* walk animates background-position from 0px to -350px */
+				from {
+					background-position:0px -240px;
+				}
+				to {
+					background-position:-350px -240px;
+				}
+			}
+			@keyframes walk {
+				/* walk animates background-position from 0px to -350px */
+				from {
+					background-position:0px -240px;
+				}
+				to {
+					background-position:-350px -240px;
+				}
+			}
+
+			.jump {
+				-webkit-transition:top .5s cubic-bezier(0.990, 0.005, 0.000, 0.420);
+				-moz-transition:top .5s cubic-bezier(0.990, 0.005, 0.000, 0.420);
+				-o-transition:top .5s cubic-bezier(0.990, 0.005, 0.000, 0.420);
+				transition:top .5s cubic-bezier(0.990, 0.005, 0.000, 0.420);
+				top:180px;
+
+				/* animation jump broken into 7 parts takes 1.5s to perform, infinitely */
+				-webkit-animation: jump steps(7) 1.5s infinite;
+				-moz-animation: jump steps(7) 1.5s infinite;
+				-o-animation: jump steps(7) 1.5s infinite;
+				animation: jump steps(7) 1.5s infinite;
+			}
+			.jump.down {
+				top:240px;
+			}
+			@-webkit-keyframes jump {
+				/* jump animates background-position from 0px to -490px */
+				from {
+					background-position:0px -640px;
+				}
+				to {
+					background-position:-490px -640px;
+				}
+			}
+			@-moz-keyframes jump {
+				/* jump animates background-position from 0px to -490px */
+				from {
+					background-position:0px -640px;
+				}
+				to {
+					background-position:-490px -640px;
+				}
+			}
+			@-o-keyframes jump {
+				/* jump animates background-position from 0px to -490px */
+				from {
+					background-position:0px -640px;
+				}
+				to {
+					background-position:-490px -640px;
+				}
+			}
+			@keyframes jump {
+				/* jump animates background-position from 0px to -490px */
+				from {
+					background-position:0px -640px;
+				}
+				to {
+					background-position:-490px -640px;
+				}
+			}
+
+			.kneel {
+				/* animation kneel broken into 1 parts takes 0.2s to perform, infinitely */
+				-webkit-animation: kneel steps(1) 0.2s infinite;
+				-moz-animation: kneel steps(1) 0.2s infinite;
+				-o-animation: kneel steps(1) 0.2s infinite;
+				animation: kneel steps(1) 0.2s infinite;
+			}
+			@-webkit-keyframes kneel {
+				/* kneel animates background-position from 0px to -720px */
+				from {
+					background-position:0px -720px;
+				}
+				to {
+					background-position:-70px -720px;
+				}
+			}
+			@-moz-keyframes kneel {
+				/* kneel animates background-position from 0px to -720px */
+				from {
+					background-position:0px -720px;
+				}
+				to {
+					background-position:-70px -720px;
+				}
+			}
+			@-o-keyframes kneel {
+				/* kneel animates background-position from 0px to -720px */
+				from {
+					background-position:0px -720px;
+				}
+				to {
+					background-position:-70px -720px;
+				}
+			}
+			@keyframes kneel {
+				/* kneel animates background-position from 0px to -720px */
+				from {
+					background-position:0px -720px;
+				}
+				to {
+					background-position:-70px -720px;
+				}
+			}
+
+			.punch {
+				/* animation punch broken into 3 parts takes 0.25s to perform, infinitely */
+				-webkit-animation: punch steps(3) 0.25s infinite;
+				-moz-animation: punch steps(3) 0.25s infinite;
+				-o-animation: punch steps(3) 0.25s infinite;
+				animation: punch steps(3) 0.25s infinite;
+			}
+			@-webkit-keyframes punch {
+				/* punch animates background-position from 0px to -210px */
+				from {
+					background-position:0px -160px;
+				}
+				to {
+					background-position:-210px -160px;
+				}
+			}
+			@-moz-keyframes punch {
+				/* punch animates background-position from 0px to -210px */
+				from {
+					background-position:0px -160px;
+				}
+				to {
+					background-position:-210px -160px;
+				}
+			}
+			@-o-keyframes punch {
+				/* punch animates background-position from 0px to -210px */
+				from {
+					background-position:0px -160px;
+				}
+				to {
+					background-position:-210px -160px;
+				}
+			}
+			@keyframes punch {
+				/* punch animates background-position from 0px to -210px */
+				from {
+					background-position:0px -160px;
+				}
+				to {
+					background-position:-210px -160px;
+				}
+			}
+
+			.kick {
+				/* animation kick broken into 5 parts takes 0.5s to perform, infinitely */
+				-webkit-animation: kick steps(5) 0.5s infinite;
+				-moz-animation: kick steps(5) 0.5s infinite;
+				-o-animation: kick steps(5) 0.5s infinite;
+				animation: kick steps(5) 0.5s infinite;
+			}
+			@-webkit-keyframes kick {
+				/* kick animates background-position from 0px to -350px */
+				from {
+					background-position:0px -480px;
+				}
+				to {
+					background-position:-350px -480px;
+				}
+			}
+			@-moz-keyframes kick {
+				/* kick animates background-position from 0px to -350px */
+				from {
+					background-position:0px -480px;
+				}
+				to {
+					background-position:-350px -480px;
+				}
+			}
+			@-o-keyframes kick {
+				/* kick animates background-position from 0px to -350px */
+				from {
+					background-position:0px -480px;
+				}
+				to {
+					background-position:-350px -480px;
+				}
+			}
+			@keyframes kick {
+				/* kick animates background-position from 0px to -350px */
+				from {
+					background-position:0px -480px;
+				}
+				to {
+					background-position:-350px -480px;
+				}
+			}
+
+		</style>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+		$( document ).ready(function() {
+
+			console.log('ciao');
+
+			$(document).on('keydown keyup', function(e) {
+				if (e.type == 'keydown') {
+
+					console.log(e.keyCode);
+
+					/* triggers jump by pressing keybord key ↑ (keyCode 38), discards jump after 1s */
+					if (e.keyCode == 38
+						&& !$('.ken').hasClass('punch')
+						&& !$('.ken').hasClass('kick')
+					) {
+						$('.ken').addClass('jump');
+						setTimeout(function() { $('.ken').removeClass('jump'); }, 1000);
+					}
+
+					// ←← →→ walking
+					if (e.keyCode == 37) {
+						$('.ken').addClass('walk').css({ marginLeft:'-=10px' });
+					}
+					if (e.keyCode == 39) {
+						$('.ken').addClass('walk').css({ marginLeft:'+=10px' });
+					}
+
+					/* triggers jump by pressing keybord key ↑ (keyCode 38), discards jump after 1s */
+					if (e.keyCode == 38
+						&& !$('.ken').hasClass('punch')
+						&& !$('.ken').hasClass('kick')
+					) {
+						$('.ken').addClass('jump');
+						setTimeout(function() { $('.ken').removeClass('jump'); }, 1000);
+					}
+
+					/* triggers kneel by pressing keybord key ↓ (keyCode 40) */
+					if (e.keyCode == 40
+						&& !$('.ken').hasClass('jump')
+						&& !$('.ken').hasClass('punch')
+						&& !$('.ken').hasClass('kick')
+					) {
+						$('.ken').addClass('kneel');
+					}
+					
+					/* triggers punch by pressing keybord key D (keyCode 68), discards punch after 0.25s */
+					if (e.keyCode == 68
+						&& !$('.ken').hasClass('jump')
+						&& !$('.ken').hasClass('kick')
+					) {
+						$('.ken').addClass('punch');
+						setTimeout(function() { $('.ken').removeClass('punch'); }, 250);
+					}
+
+					//* triggers punch by pressing keybord key S (keyCode 83), discards kick after 0.5s */
+					if (e.keyCode == 83
+						&& !$('.ken').hasClass('jump')
+						&& !$('.ken').hasClass('punch')
+					) {
+						$('.ken').addClass('kick');
+						setTimeout(function() { $('.ken').removeClass('kick'); }, 500);
+					}
+
+				}else { // keyup
+					$('.ken').removeClass('walk kneel');
+				}
+				return false;
+			});
+
+		});
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="stage1">
+			<div class="ken idle"></div>
+		</div>
+
+	</body>
+
+</html>
